@@ -13,8 +13,10 @@ private:
 public:
 	void setvaluve(int fe,int in);
 	void display();
-	void unplay(int a,double b);
+	void unplay(int a,int b);
 	Ckobe operator+(Ckobe & wtf);
+	Ckobe operator-(Ckobe & xx);
+    Ckobe play(Ckobe & xx);
 };
 
 void Ckobe::setvaluve(int fe,int in)
@@ -35,7 +37,7 @@ Ckobe Ckobe::operator+(Ckobe & wtf)
 	return temp;
 }
 
-void Ckobe::unplay(int a,double b)
+void Ckobe::unplay(int a,int b)
 {
 	feet = feet + a;
 	if (inches + b > 12)
@@ -60,19 +62,31 @@ void Ckobe::unplay(int a,double b)
 	}
 }
 
+Ckobe Ckobe::operator-(Ckobe & wtf)
+{
+	Ckobe temp;
+	temp.setvaluve(feet - wtf.feet, inches - wtf.inches);
+	return temp;
+}
 
 int main()
 {
 	Ckobe A, B, C;
-	A.setvaluve(5, 10);
+	int k1;
+	int k2;
+	int k3;
+	int k4;
+	cin >> k1 >> k2 >> k3 >> k4;
+	A.setvaluve(k1, k2);
 	A.display();
-	A.unplay(5, 10);
-	B.setvaluve(5, 9);
+	A.unplay(k1,k2);
+	B.setvaluve(k3, k4);
 	B.display();
-	B.unplay(5, 9);
+	B.unplay(k3, k4);
 	C = A + B;
 	C.display();
-	C.unplay(5, 9);
+	C = A - B;
+	C.display();
     return 0;
 }
 
