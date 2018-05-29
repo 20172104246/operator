@@ -40,12 +40,13 @@ Ckobe Ckobe::operator+(Ckobe & wtf)
 void Ckobe::unplay(int a,int b)
 {
 	feet = feet + a;
+	cout << feet << "Ó¢³ß" << inches << "Ó¢´ç" << endl;
 	if (inches + b > 12)
 	{
 		feet = feet + 1;
 		inches = (inches + b) - 12;
 		cout << feet << "Ó¢³ß" << inches << "Ó¢´ç" << endl;
-		float q, x, y;
+    	float q, x, y;
 		for (y = 1.5f; y>-1.5f; y -= 0.1f)
 		{
 			for (x = -1.5f; x<1.5f; x += 0.05f)
@@ -66,12 +67,14 @@ Ckobe Ckobe::operator-(Ckobe & wtf)
 {
 	Ckobe temp;
 	temp.setvaluve(feet - wtf.feet, inches - wtf.inches);
+	cout << "feet=" << temp.feet<<"    "<< "wtf.feet=" << wtf.feet << endl;
+	cout << "inches=" << temp.inches << "    " << "wtf.inches=" << wtf.inches << endl;
 	return temp;
 }
 
 int main()
 {
-	Ckobe A, B, C;
+	Ckobe A, B, C,D;
 	int k1;
 	int k2;
 	int k3;
@@ -81,11 +84,21 @@ int main()
 	A.display();
 	A.unplay(k1,k2);
 	B.setvaluve(k3, k4);
+	cout << "B    "; 
 	B.display();
 	B.unplay(k3, k4);
 	C = A + B;
+	cout << "C    ";
 	C.display();
+	cout << "A    ";
+	A.display();
+	cout << "B    ";
+	B.display();
+	/*D.setvaluve(0,0);
+	cout << "d    ";
+	D.display();*/
 	C = A - B;
+	cout << "C    ";
 	C.display();
     return 0;
 }
